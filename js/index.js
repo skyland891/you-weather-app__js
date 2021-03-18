@@ -19,7 +19,6 @@ function renderWeather(weatherData) {
     let currentMounth = mounthsArray[date.getMonth()];
     weatherDate.innerHTML = `${date.getDate()} ${currentMounth} ${date.getFullYear()}`;
 
-    //weatherStatus.innerHTML = "";
     weatherMinTemp.innerHTML = `${(+(weatherData.main.temp_min) - 273.15).toFixed(1)} - `;
     weatherMaxTemp.innerHTML = `${(+(weatherData.main.temp_max) - 273.15).toFixed(1)} &#8451`;
     weatherHumidity.innerHTML = `Влажность: ${weatherData.main.humidity}%`;
@@ -42,7 +41,7 @@ function init () {
         );
     })
     .then( pos => {
-        let requestURL = `http://api.openweathermap.org/data/2.5/weather?lat=${pos.latitude}&lon=${pos.longitude}&appid=d4c56184700c822c20bc8877b007221a`;
+        let requestURL = `https://api.openweathermap.org/data/2.5/weather?lat=${pos.latitude}&lon=${pos.longitude}&appid=d4c56184700c822c20bc8877b007221a`;
         return (fetch(requestURL));
 
     })
